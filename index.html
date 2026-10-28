@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weather Now</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <a class="logo" href="#" aria-label="Weather Now home">☀️ <span>Weather Now</span></a>
+      <div class="units">
+        <button class="pill" id="unitsBtn" aria-haspopup="true" aria-expanded="false">⚙ Units ▾</button>
+        <div class="menu" id="unitsMenu" hidden>
+          <button class="switch" id="switchBtn"></button>
+          <div class="group"><h3>Temperature</h3>
+            <button data-key="temp" data-val="celsius">Celsius (°C)</button>
+            <button data-key="temp" data-val="fahrenheit">Fahrenheit (°F)</button></div>
+          <div class="group"><h3>Wind Speed</h3>
+            <button data-key="wind" data-val="kmh">km/h</button>
+            <button data-key="wind" data-val="mph">mph</button></div>
+          <div class="group"><h3>Precipitation</h3>
+            <button data-key="precip" data-val="mm">Millimeters (mm)</button>
+            <button data-key="precip" data-val="inch">Inches (in)</button></div>
+        </div>
+      </div>
+    </header>
+
+    <h1>How’s the sky looking today?</h1>
+
+    <form class="search" id="searchForm" role="search">
+      <label class="field"><span aria-hidden="true">🔍</span>
+        <input id="q" type="text" placeholder="Search for a place..." autocomplete="off" aria-label="Search for a place"></label>
+      <button class="btn" type="submit">Search</button>
+    </form>
+
+    <p class="status" id="status" role="status" hidden></p>
+
+    <main id="content" class="grid" hidden>
+      <div class="left">
+        <section class="now">
+          <div><h2 id="place"></h2><p id="date"></p></div>
+          <div class="temp"><span class="icon" id="nowIcon"></span><strong id="nowTemp"></strong></div>
+        </section>
+        <section class="metrics">
+          <div class="card"><p>Feels Like</p><strong id="feels"></strong></div>
+          <div class="card"><p>Humidity</p><strong id="hum"></strong></div>
+          <div class="card"><p>Wind</p><strong id="wind"></strong></div>
+          <div class="card"><p>Precipitation</p><strong id="prec"></strong></div>
+        </section>
+        <section>
+          <h3 class="title">Daily forecast</h3>
+          <div class="days" id="days"></div>
+        </section>
+      </div>
+      <aside class="hourly">
+        <div class="hhead"><h3 class="title">Hourly forecast</h3>
+          <div class="units">
+            <button class="pill" id="dayBtn" aria-haspopup="true" aria-expanded="false"></button>
+            <div class="menu small" id="dayMenu" hidden></div>
+          </div>
+        </div>
+        <ul id="hours"></ul>
+      </aside>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
